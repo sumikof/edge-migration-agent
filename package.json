@@ -1,0 +1,31 @@
+{
+  "name": "edge-migration-agent-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "doctor": "tsx src/cli.ts doctor",
+    "baseline:ie": "tsx src/cli.ts run ie",
+    "test:edge": "tsx src/cli.ts run edge",
+    "compare": "tsx src/cli.ts compare",
+    "test:dual": "tsx src/cli.ts dual",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@playwright/test": "1.64.1",
+    "iedriver": "4.0.0",
+    "pixelmatch": "7.1.0",
+    "selenium-webdriver": "4.49.0",
+    "sharp": "0.34.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "@types/pixelmatch": "^5.2.6"
+  }
+}

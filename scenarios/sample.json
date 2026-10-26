@@ -1,0 +1,10 @@
+{
+  "name": "sample",
+  "description": "Replace with your own business transaction, selectors, and expected values.",
+  "steps": [
+    {"op": "navigate", "path": "/"},
+    {"op": "waitVisible", "selector": "body"},
+    {"op": "captureText", "selector": "title", "key": "pageTitle", "optional": true},
+    {"op": "screenshot", "name": "home"}
+  ]
+}

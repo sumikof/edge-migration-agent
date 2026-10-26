@@ -1,0 +1,9 @@
+{
+  "ieBaseUrl": "http://127.0.0.1:8080",
+  "edgeBaseUrl": "http://127.0.0.1:8081",
+  "edgeExecutablePath": "",
+  "viewport": {"width": 1280, "height": 900},
+  "timeoutMs": 15000,
+  "visualDiffThreshold": 0.15,
+  "maxDiffRatio": 0.03
+}
