@@ -1,0 +1,21 @@
+{
+  "$comment": "Copy to config/migration.json and adjust. Paths in include/exclude/writableGlobs are relative to sourceRoot (forward slashes).",
+  "targetApp": {
+    "sourceRoot": "C:/work/legacy-order-system",
+    "include": ["src/main/webapp/**/*.js", "src/main/webapp/**/*.jsp", "src/main/webapp/**/*.html", "src/main/webapp/**/*.css", "src/main/webapp/**/*.htc"],
+    "exclude": ["**/.git/**", "**/node_modules/**", "**/*.min.js", "**/lib/jquery*/**"],
+    "defaultEncoding": "auto",
+    "encodingOverrides": { "src/main/webapp/legacy/**": "cp932" },
+    "maxFileBytes": 5242880
+  },
+  "fix": {
+    "allowWrite": false,
+    "writableGlobs": ["src/main/webapp/js/**/*.js", "src/main/webapp/order/**/*.jsp"],
+    "maxAttemptsPerFinding": 3,
+    "maxTotalAttempts": 15,
+    "maxEditsPerAttempt": 10,
+    "requireGit": true,
+    "requireCleanFiles": true,
+    "verifyScenarios": ["order-search"]
+  }
+}

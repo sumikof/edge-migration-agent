@@ -1,6 +1,6 @@
 {
   "name": "edge-migration-agent-starter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -8,15 +8,32 @@
   },
   "scripts": {
     "doctor": "tsx src/cli.ts doctor",
+    "validate": "tsx src/cli.ts validate",
+    "analyze": "tsx src/cli.ts analyze",
+    "smoke:ie": "tsx src/cli.ts run ie --scenario smoke",
+    "smoke:edge": "tsx src/cli.ts run edge --scenario smoke",
     "baseline:ie": "tsx src/cli.ts run ie",
+    "baseline:lock": "tsx src/cli.ts baseline lock",
+    "baseline:list": "tsx src/cli.ts baseline list",
+    "baseline:verify": "tsx src/cli.ts baseline verify",
     "test:edge": "tsx src/cli.ts run edge",
     "compare": "tsx src/cli.ts compare",
     "test:dual": "tsx src/cli.ts dual",
+    "report": "tsx src/cli.ts report",
+    "fix:begin": "tsx src/cli.ts fix begin",
+    "fix:apply": "tsx src/cli.ts fix apply",
+    "fix:verify": "tsx src/cli.ts fix verify",
+    "fix:test": "tsx src/cli.ts fix test",
+    "fix:restore": "tsx src/cli.ts fix restore",
+    "fix:status": "tsx src/cli.ts fix status",
     "typecheck": "tsc --noEmit",
-    "test:unit": "node --test tests/*.test.mjs"
+    "test:unit": "node --import tsx --test tests/*.test.mjs",
+    "test:integration": "node --import tsx --test tests/integration/*.test.mjs",
+    "test": "npm run typecheck && npm run test:unit && npm run test:integration"
   },
   "dependencies": {
     "@playwright/test": "1.64.1",
+    "iconv-lite": "0.6.3",
     "iedriver": "4.0.0",
     "pixelmatch": "7.1.0",
     "selenium-webdriver": "4.49.0",
@@ -24,8 +41,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/pixelmatch": "^5.2.6",
     "tsx": "^4.20.0",
-    "typescript": "^5.9.0",
-    "@types/pixelmatch": "^5.2.6"
+    "typescript": "^5.9.0"
   }
 }

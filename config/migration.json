@@ -1,0 +1,10 @@
+{
+  "$comment": "External business application. sourceRoot must be an absolute path OUTSIDE this harness. Empty = analysis and fixes disabled. See config/migration.example.json.",
+  "targetApp": {
+    "sourceRoot": ""
+  },
+  "fix": {
+    "allowWrite": false,
+    "writableGlobs": []
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "smoke",
+  "description": "First pass (CLAUDE.md): validate driver boot, navigation and rendering engine only. Read-only.",
+  "tags": ["first-pass"],
+  "steps": [
+    {"op": "navigate", "path": "/"},
+    {"op": "waitVisible", "selector": "body"},
+    {"op": "captureUrl", "key": "landingUrl"},
+    {"op": "screenshot", "name": "landing"}
+  ]
+}

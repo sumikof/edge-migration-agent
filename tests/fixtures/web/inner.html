@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<script>
+function doSearch() {
+  if (!confirm('検索しますか？')) return;
+  setTimeout(function () {
+    document.getElementById('count').innerHTML = '検索結果 3 件 (' + new Date().toISOString() + ')';
+    document.getElementById('msg').innerHTML = '';
+  }, 300);
+}
+function openDetail() { window.open('detail.html', 'detail', 'width=400,height=300'); }
+</script></head>
+<body>
+<form id="search" method="post" action="/save" onsubmit="return true">
+  <input id="customer" name="customer">
+  <select id="status" name="status"><option value="1">受付</option><option value="2">出荷済</option></select>
+  <label><input id="closed" name="closed" type="checkbox">完了含む</label>
+  <input id="pw" name="pw" type="password">
+  <button type="button" onclick="doSearch()">検索</button>
+  <button type="submit" id="save">保存</button>
+</form>
+<div id="count"></div><div id="msg" class="error"></div>
+<table id="table"><tr><td>A001</td><td style="color:red">出荷済</td></tr></table>
+<a id="detail" href="javascript:openDetail()">詳細</a>
+</body></html>
