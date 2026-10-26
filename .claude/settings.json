@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(/CLAUDE.md)",
+      "Write(/CLAUDE.md)",
+      "Edit(/artifacts/**)",
+      "Write(/artifacts/**)",
+      "Bash(npm publish:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node --import tsx \"${CLAUDE_PROJECT_DIR}/src/hooks/edit-guard-cli.ts\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

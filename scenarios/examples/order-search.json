@@ -1,0 +1,31 @@
+{
+  "name": "order-search",
+  "description": "Example: read-only search in a frameset application. Copy to scenarios/order-search.json and adapt selectors. Credentials come from environment variables, never from this file.",
+  "tags": ["example"],
+  "steps": [
+    {"op": "navigate", "path": "/login.jsp"},
+    {"op": "fill", "selector": "#userId", "value": "${env:APP_TEST_USER}"},
+    {"op": "fill", "selector": "#password", "value": "${env:APP_TEST_PASSWORD}", "secret": true},
+    {"op": "click", "selector": "#loginButton"},
+    {"op": "waitUrl", "urlContains": "/menu"},
+    {"op": "click", "frame": "frame[name=menu]", "xpath": "//a[normalize-space(.)='受注検索']"},
+    {"op": "waitVisible", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#customerCode"},
+    {"op": "fill", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#customerCode", "value": "TEST0001"},
+    {"op": "select", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#status", "label": "出荷済"},
+    {"op": "check", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#includeClosed"},
+    {"op": "captureFormState", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "form#search", "key": "searchForm"},
+    {"op": "click", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#searchButton"},
+    {"op": "dialog", "action": "accept", "text": "検索", "key": "confirmMessage"},
+    {"op": "waitText", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#resultCount", "text": "件"},
+    {"op": "captureText", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#resultCount", "key": "resultCount"},
+    {"op": "captureText", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#resultTable", "key": "resultTable"},
+    {"op": "captureDom", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#resultTable", "key": "resultTableDom", "category": "display"},
+    {"op": "click", "frame": ["frame[name=main]", "iframe#searchFrame"], "selector": "#resultTable a.detail"},
+    {"op": "switchWindow", "urlContains": "orderDetail"},
+    {"op": "captureText", "selector": "#orderAmount", "key": "orderAmount"},
+    {"op": "captureText", "selector": ".error-message", "key": "detailValidation", "category": "validation", "optional": true},
+    {"op": "screenshot", "name": "order-detail", "mask": ["#customerName", "#address"]},
+    {"op": "closeWindow"},
+    {"op": "screenshot", "name": "search-result"}
+  ]
+}

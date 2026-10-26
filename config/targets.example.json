@@ -1,0 +1,21 @@
+{
+  "$comment": "All sections below 'maxDiffRatio' are optional; defaults shown. Copy what you need into config/targets.json.",
+  "ieBaseUrl": "http://test-app.example.local:8080/app/",
+  "edgeBaseUrl": "http://test-app-edge.example.local:8080/app/",
+  "edgeExecutablePath": "",
+  "viewport": { "width": 1280, "height": 900 },
+  "timeoutMs": 15000,
+  "visualDiffThreshold": 0.15,
+  "maxDiffRatio": 0.03,
+  "retries": { "step": 0, "launch": 1 },
+  "ie": { "expectedDocumentMode": null, "ensureCleanSession": true, "ignoreZoomSetting": false, "attachTimeoutMs": 30000 },
+  "edge": { "channel": "msedge", "headless": false, "requireEdgeBrand": true },
+  "compare": { "visualGate": false, "failOnPageErrors": true, "failOnHttpErrors": false, "ignoreCaptureKeys": [], "domIgnoreAttributes": [] },
+  "masking": {
+    "redactPII": true,
+    "redact": [{ "name": "customer-no", "regex": "C\\d{8}", "replacement": "<CUSTOMER>" }],
+    "normalizeDynamic": true,
+    "normalize": [{ "name": "slip-no", "regex": "伝票番号[:：]\\s*\\d+", "replacement": "伝票番号:<N>" }]
+  },
+  "safety": { "blockMutatingRequests": true, "productionUrlPatterns": ["://prod[.-]", "://www\\.example\\.co\\.jp"] }
+}

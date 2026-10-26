@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+<meta charset="utf-8">
+<!--[if IE]><script src="../js/iefix.js"></script><![endif]-->
+<script type="text/javascript" src="../js/common.js"></script>
+<script language="VBScript">
+Sub btnCalc_OnClick
+  MsgBox "calc"
+End Sub
+</script>
+<script>
+  function readFrame() {
+    return parent.frames["detail"].document.getElementById("total").value;
+  }
+  document.write('<object classid="clsid:12345678-0000-0000-0000-000000000000"></object>');
+</script>
+</head>
+<body>
+<p>This text talks about showModalDialog but is only text.</p>
+<input id="qty" onpropertychange="recalc()" style="ime-mode:disabled; cursor:hand">
+<a href="vbscript:DoIt()">run</a>
+</body>
+</html>

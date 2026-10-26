@@ -1,0 +1,6 @@
+/* filter: alpha(opacity=50) in a comment is fine */
+.box { width: expression(document.body.clientWidth - 20 + "px"); }
+.fade { filter: alpha(opacity=50); }
+.round { behavior: url(/htc/round.htc); }
+.kana { ime-mode: active; }
+.hack { *zoom: 1; }

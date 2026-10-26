@@ -1,0 +1,6 @@
+{
+  "$comment": "Copy to config/waivers.json. Waived analysis findings do not block the completion verdict (e.g. pages that intentionally stay in IE mode).",
+  "waivers": [
+    { "id": "F-0123456789", "reason": "Excel export via ActiveX stays in IE mode until the server-side export is released", "approvedBy": "system owner" }
+  ]
+}
